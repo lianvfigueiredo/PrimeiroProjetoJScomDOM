@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+        body{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            background-color: #F5F5F5;
+            font-family: 'Raleway';
+            
+        }
+        header{
+            display: flex;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 45px;
+        }
+        header h1{
+            margin-bottom: 20px;
+        }
+        main{
+            font-weight: 400;
+            font-size: 40px;
+            display: block;
+        }
+        main div{
+            margin-bottom: 50px;
+        }
+        main input{
+            margin-top: 10px;
+            background-color: #FFFFFF;
+            width: 600px;
+            height: 80px;
+            border-radius: 40px;
+            border: none;
+            font-size: 40px;
+            text-align: center;
+        }
+        main button{
+            background-color: #A2A2A2;
+            width: 330px;
+            height: 80px;
+            border-radius: 10px;
+            color: #FFFFFF;
+            font-size: 40px;
+            margin-top: 20px;
+            border: none;
+            font-weight: 400;
+        }
+        main button:hover{
+            cursor: pointer;
+        }
+        /* main #form{
+            display:none;
+        } */
+        main #resultado{
+            display: none;
+            margin-top: 70px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Painel do Aluno</h1>
+        <img>
+    </header>
+    <main>
+        <div id="form">
+            <div>
+                <p>Digite a primeira nota do aluno:</p>
+                <input type="number" name="firstScore" id="prim">
+            </div>
+            <div>
+                <p>Digite a segunda nota do aluno:</p>
+                <input type="number" name="secondScore" id="seg">
+            </div>
+            <button type="button" onclick="mediaTotal()">Calcular</button>
+        </div>
+        
+        <div id="resultado">
+            <div>
+                <p>A média do aluno é:</p>
+                <input type="number" name="firstScore" id="media">
+                <p>Portanto está <span id="text">aprovado</span>!</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+
+<script>
+    function mediaTotal(){
+        document.querySelector("#form").style.display = "none";
+        let num1 = document.querySelector("#prim").value;
+        let num2 = document.querySelector("#seg").value;
+        let media = ((Number(num1) + Number(num2))/2);
+        document.querySelector("#media").value = media;
+        document.querySelector("#resultado").style.display = "block";
+        if(media>=7){
+            document.querySelector("#text").textContent = "APROVADO";
+            document.querySelector("#text").style.color = "#5E9725";
+        }else{
+            document.querySelector("#text").textContent = "REPROVADO";
+            document.querySelector("#text").style.color = "#CC4242";
+        }
+        
+        
+    }
+</script>
